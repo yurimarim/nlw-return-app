@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
     color: theme.colors.text_primary
   },
   image: {
-    weight: 35,
+    width: 35,
     height: 35,
     marginRight: 8
   },
