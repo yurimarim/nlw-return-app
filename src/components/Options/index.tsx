@@ -1,13 +1,18 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
+import { FeedbackType } from '../Widget'
 import { Copyright } from '../Copyright';
 import { Option } from '../Option'
 
 import { feedbackTypes } from '../../utils/feedbackTypes'
 import { styles } from './styles';
 
-export function Options(){
+interface Props {
+  onFeedbackTypeChanged: (feedbackType: FeedbackType) => void;
+}
+
+export function Options({ onFeedbackTypeChanged }: Props){
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Deixe seu feedback</Text>
@@ -20,6 +25,7 @@ export function Options(){
           .map(([key, value]) => (
             <Option
               key={key}
+              onPress={() => onFeedbackTypeChanged(key as FeedbackType)}
               title={value.title}
               image={value.image}
             />
